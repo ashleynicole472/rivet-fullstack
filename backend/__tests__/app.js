@@ -2,14 +2,6 @@ const request = require('supertest')
 const app = require('../app')
 jest.mock('../models/page')
 
-describe("App", () => {
-    it("Tests the root path", () => {
-      return request(app).get("/").then(res => {
-        expect(res.statusCode).toBe(200)
-    })
-  })
-})
-
 describe("Restful Pages", () => {
   it("Lists pages", () => {
     return request(app).get("/pages").then(res => {
@@ -40,7 +32,7 @@ describe("Restful Pages", () => {
   })
 
   it("updates a page", () => {
-    return request(app).post("/pages/1").send({
+    return request(app).put("/pages/1").send({
       rivet_type: "The Hammer",
       content: "BLAH BLU BLAH NLU"
     })
@@ -54,7 +46,7 @@ describe("Restful Pages", () => {
   })
 
   it("deletes a page", () => {
-    return request(app).post("/pages/1/delete").then(res => {
+    return request(app).delete("/pages/1").then(res => {
     expect(res.statusCode).toBe(302)
     })
   })

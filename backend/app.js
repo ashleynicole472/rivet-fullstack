@@ -7,10 +7,6 @@ var Page = require("./models").Page
 app.use(express.static('public'))
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-  res.json({message: 'API Example App'})
-});
-
 app.get('/pages', (req, res) => {
   Page.findAll()
   .then((pages) => {
@@ -41,7 +37,7 @@ app.post('/pages', (req, res) => {
   })
 })
 
-app.post('/pages/:id', (req, res) => {
+app.put('/pages/:id', (req, res) => {
   Page.findById(parseInt(req.params.id)).then((page) => {
     page.update({
       rivet_type: req.body.rivet_type,
@@ -55,7 +51,7 @@ app.post('/pages/:id', (req, res) => {
   })
 })
 
-app.post('/pages/:id/delete', (req, res) => {
+app.delete('/pages/:id', (req, res) => {
   Page.findById(req.params.id).then((page) => {
     return page.destroy()
     })
