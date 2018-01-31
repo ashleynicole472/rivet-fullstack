@@ -1,11 +1,17 @@
 var express = require('express');
+var cors = require('cors');
 var bodyParser = require('body-parser')
 var app = express();
 
-var Page = require("./models").Page
+var Page = require("./models").Page;
 
 app.use(express.static('public'))
 app.use(bodyParser.json())
+app.use(cors())
+
+app.get('/', (req, res) => {
+  res.redirect('/pages')
+})
 
 app.get('/pages', (req, res) => {
   Page.findAll()
