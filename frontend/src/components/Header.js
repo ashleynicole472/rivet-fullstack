@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import ("../stylesheets/bootstrap.flatly.min.css");
 
 class Header extends Component{
   render() {
@@ -24,7 +25,7 @@ class Header extends Component{
           </div>
 
         </nav>
-        
+
       </div>
     )
   }
