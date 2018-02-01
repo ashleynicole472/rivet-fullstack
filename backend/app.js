@@ -66,8 +66,8 @@ app.delete('/pages/:id', (req, res) => {
     })
     .catch((error) => {
       res.send("Error, could not fetch Pages")
-    })
   })
+})
 
 
 

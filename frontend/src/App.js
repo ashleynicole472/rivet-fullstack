@@ -5,19 +5,19 @@ import Main from './components/Main.js';
 import Footer from './components/Footer.js';
 
 
-    class App extends Component {
+  class App extends Component {
 
-        render() {
-            return (
+  render() {
+    return (
 
-                <div>
-                    <Header />
-                        <Main />
-                    <Footer />
-                </div>
+      <div>
+        <Header />
+          <Main />
+        <Footer />
+      </div>
 
-            );
-        }
-    }
+    );
+  }
+}
 
 export default App;
